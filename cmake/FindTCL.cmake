@@ -72,3 +72,13 @@ message(STATUS "TCL header: ${TCL_HEADER}")
 if (TCL_HEADER)
   get_filename_component(TCL_INCLUDE_PATH "${TCL_HEADER}" PATH)
 endif()
+
+# Locate tclsh
+if (NOT TCL_SH)
+  find_file(TCL_SH tclsh
+    PATHS ${TCL_LIB_PARENT1} ${TCL_LIB_PARENT2}
+    PATH_SUFFIXES bin bin/tcl
+    NO_DEFAULT_PATH
+    )
+endif()
+message(STATUS "TCL sh file: ${TCL_SH}")
