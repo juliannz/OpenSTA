@@ -376,7 +376,7 @@ set(STA_TCL_INIT ${CMAKE_CURRENT_BINARY_DIR}/StaTclInitVar.cc)
 # These files are encoded and shipped as part of the executable 
 # so that they do not have to be installed on the client host.
 add_custom_command(OUTPUT ${STA_TCL_INIT}
-  COMMAND PATH=${TCL_SH}:$ENV{PATH} etc/TclEncode.tcl ${STA_TCL_INIT} tcl_inits ${STA_TCL_FILES}
+  COMMAND PATH=${TCL_BIN_PATH}:$ENV{PATH} etc/TclEncode.tcl ${STA_TCL_INIT} tcl_inits ${STA_TCL_FILES}
   WORKING_DIRECTORY ${STA_HOME}
   DEPENDS ${STA_TCL_FILES} etc/TclEncode.tcl
   )
